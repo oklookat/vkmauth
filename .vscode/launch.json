@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug",
+            "name": "Test",
             "console": "integratedTerminal",
             "type": "go",
             "request": "launch",
