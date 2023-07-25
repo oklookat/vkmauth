@@ -10,7 +10,7 @@
             "type": "go",
             "request": "launch",
             "mode": "auto",
-            "program": "${cwd}/main.go",
+            "program": "${cwd}/main/main.go",
         }
     ]
 }

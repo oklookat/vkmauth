@@ -1,4 +1,4 @@
-package vkm2fa
+package vkmauth
 
 import (
 	"context"
@@ -39,6 +39,7 @@ func getAnonymousToken(ctx context.Context) (*anonymousToken, error) {
 
 type anonymousToken struct {
 	Token string `json:"token"`
+
 	// Unix ms, expires after 1 day.
 	ExpiredAt int64 `json:"expired_at"`
 

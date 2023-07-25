@@ -1,11 +1,11 @@
-package vkm2fa
+package vkmauth
 
 import (
 	"context"
 	"fmt"
 )
 
-func validatePhone(ctx context.Context, phone string, by *anonymousToken) (*validatePhoneResponse, error) {
+func validatePhone(ctx context.Context, phone, sid string, by *anonymousToken) (*validatePhoneResponse, error) {
 
 	form := map[string]string{
 		"access_token":   by.Token,
@@ -16,13 +16,9 @@ func validatePhone(ctx context.Context, phone string, by *anonymousToken) (*vali
 		"v":              _apiVersion,
 		"api_id":         _apiId,
 	}
-
-	// В форме есть еще параметр "sid", куда можно вставить id сессии.
-	// То есть по идее можно выполнить запрос без него,
-	// получить sid,
-	// снова отправить запрос, но уже с sid,
-	// и тогда по идее в ответе изменится ValidationResend и ValidationType.
-	// Т.е таким образом можно изменять метод доставки кода.
+	if len(sid) > 0 {
+		form["sid"] = sid
+	}
 
 	result := &validatePhoneResponse{}
 

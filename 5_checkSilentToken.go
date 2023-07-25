@@ -1,4 +1,4 @@
-package vkm2fa
+package vkmauth
 
 import (
 	"context"
